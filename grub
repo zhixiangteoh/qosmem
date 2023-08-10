@@ -10,14 +10,36 @@ GRUB_TIMEOUT=4
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT=""
 GRUB_CMDLINE_LINUX="console=ttyS1,115200"
-## for baseline:
-# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=112G!82G memmap=182G!202G"
-## for 8G local (socket1) and 80G remote (socket0), add:
+
+## baseline:
+GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62"
+
+## vary local DRAM:
+# 1GB: 
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=189G!195G"
+# 2GB (10% of 20GB): 
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=188G!196G"
+# 4GB (20% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=186G!198G"
+# 6GB (30% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=184G!200G"
+# 8GB (40% of 20GB):
 # GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=182G!202G"
-## if you want baseline, use:
-GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 rdt=cmt,mbmtotal,mbmlocal,l3cat,l3cdp,mba"
-## if want 8G local and 80G remote, add:
-## GRUB_CMDLINE_LINUX="isolcpus=1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63 memmap=182G!10G memmap=112G!274G"
+# 10GB (50% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=180G!204G"
+# 12GB (60% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=178G!206G"
+# 14GB (70% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=176G!208G"
+# 16GB (80% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=174G!210G"
+# 18GB (90% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=172G!212G"
+# 20GB (100% of 20GB):
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 memmap=110G!82G memmap=170G!214G"
+
+## memory bandwidth monitoring:
+# GRUB_CMDLINE_LINUX="isolcpus=0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62 rdt=cmt,mbmtotal,mbmlocal,l3cat,l3cdp,mba"
 
 # Uncomment to enable BadRAM filtering, modify to suit your needs
 # This works with Linux (no patch required) and with any kernel that obtains

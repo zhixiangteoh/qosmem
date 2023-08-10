@@ -1,0 +1,1 @@
+/build_dir/voltdb/tests/test_apps/tpcc/xxx-diagnostics-all-local-cores-1.txt
